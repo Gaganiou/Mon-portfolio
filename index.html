@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdoul ADJIBAHO | Architecte de Croissance & Digital Builder</title>
+  <meta name="description" content="Digital Builder & Consultant en Acquisition. Je conçois des plateformes web et mets en place des stratégies de croissance pour scaler votre activité.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <script>
+    // Theme logic runs immediately to prevent flash
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const current = htmlEl.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      const btn = document.getElementById('theme-btn');
+      if(btn) btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('theme-btn');
+      if(btn) btn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+</head>
+<body>
+  <!-- Custom Cursor & Ambient Glow -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div class="mouse-glow"></div>
+
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="#" class="logo">Abdoul<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#vision" class="hover-target">Vision</a></li>
+        <li><a href="#services" class="hover-target">Expertise</a></li>
+        <li><a href="#projets" class="hover-target">Cas Clients</a></li>
+        <li><button class="theme-toggle hover-target" id="theme-btn" aria-label="Toggle theme" onclick="toggleTheme()">☀️</button></li>
+        <li><a href="#contact" class="btn-primary magnetic-btn">Travailler ensemble</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-wrapper">
+        <div class="tech-badge">
+          <span class="dot"></span>
+          Systèmes Digitaux & Acquisition
+        </div>
+        <h1 class="title">
+          Je structure votre croissance et conçois vos <span>solutions digitales</span>.
+        </h1>
+        <p>
+          Je n'édite pas simplement des sites web. J'aide les entreprises à clarifier, générer et piloter leur croissance à travers la création de plateformes performantes et des stratégies d'acquisition millimétrées (SEO, Ads).
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary magnetic-btn">Découvrir l'approche</a>
+          <a href="#projets" class="btn-secondary magnetic-btn">Voir les résultats</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION / APPROCHE -->
+    <section id="vision" class="section">
+      <div class="section-header" data-animate="fade-up">
+        <h2>Une croissance systématisée</h2>
+        <p>Le succès digital n'est pas un hasard, c'est l'exécution d'un système structuré et mesurable.</p>
+      </div>
+
+      <div class="method-grid">
+        <div class="method-card tilt-card" data-animate="fade-up">
+          <div class="tilt-content">
+            <h3>La fin du bricolage technique</h3>
+            <p>Passer d'outils déconnectés et lents à un écosystème web puissant et automatisé.</p>
+            <ul>
+              <li>Des plateformes et SaaS qui répondent à des problèmes métiers.</li>
+              <li>Des boutiques e-commerce optimisées pour la conversion pure.</li>
+              <li>Une intégration poussée par l'IA (Vibe Coding) pour scaler la production.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="method-card tilt-card" data-animate="fade-up">
+          <div class="tilt-content">
+            <h3>La fin de l'acquisition hasardeuse</h3>
+            <p>Passer du simple bouche-à-oreille à un pipeline de clients maîtrisé.</p>
+            <ul>
+              <li>Trafic organique pérenne via un SEO Stratégique.</li>
+              <li>Acquisition payante agressive et rentable (Facebook Ads, Google Ads).</li>
+              <li>Tunnels de vente optimisés pour maximiser le ROI.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEUX PILIERS (BUILD & GROW) -->
+    <section id="services" class="section">
+      <div class="section-header" data-animate="fade-up">
+        <h2>Mes deux piliers d'intervention</h2>
+        <p>J'interviens sur l'ensemble de votre chaîne de valeur, de la construction de l'outil à la génération de revenus.</p>
+      </div>
+
+      <div class="services-container">
+        <!-- Pilier 1 : BUILD -->
+        <div class="service-column" data-animate="fade-up">
+          <h3>BUILD : Ingénierie & Création</h3>
+          
+          <div class="service-item">
+            <h4>Plateformes Web & Applications</h4>
+            <p>Développement d'outils métiers, d'espaces membres et de SaaS adaptés à votre structure. L'utilisation de l'IA me permet de diviser les temps de production.</p>
+          </div>
+          
+          <div class="service-item">
+            <h4>E-commerce & Sites Vitrines</h4>
+            <p>Création sous WordPress/WooCommerce ou Shopify. Des architectures techniques saines, rapides et pensées pour l'expérience utilisateur.</p>
+          </div>
+          
+          <div class="service-item">
+            <h4>Tunnels de Vente & Landing Pages</h4>
+            <p>Conception de pages de capture (Systeme.io, outils dédiés) ultra-optimisées pour transformer un visiteur froid en client chaud.</p>
+          </div>
+        </div>
+
+        <!-- Pilier 2 : GROW -->
+        <div class="service-column" data-animate="fade-up">
+          <h3>GROW : Stratégie & Acquisition</h3>
+          
+          <div class="service-item">
+            <h4>Stratégie d'Acquisition (Ads)</h4>
+            <p>Déploiement et gestion de campagnes Meta (Facebook/Insta), Google Ads et TikTok Ads pour injecter du trafic hautement qualifié vers vos offres.</p>
+          </div>
+          
+          <div class="service-item">
+            <h4>SEO & Visibilité Organique</h4>
+            <p>Stratégie de contenu, maillage interne et optimisation technique pour asseoir votre autorité sur le long terme et réduire le coût d'acquisition.</p>
+          </div>
+          
+          <div class="service-item">
+            <h4>Stratégie de Conversion (CRO)</h4>
+            <p>Analyse de la data, A/B testing et refonte des parcours utilisateurs pour maximiser le revenu généré par chaque visiteur existant.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS & CAS CLIENTS -->
+    <section id="projets" class="section">
+      <div class="section-header" data-animate="fade-up">
+        <h2>Études de Cas & Résultats</h2>
+        <p>Exemples de transformations digitales et d'optimisations d'acquisition.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Projet 1: BUILD -->
+        <div class="project-card tilt-card" data-animate="fade-up">
+          <div class="tilt-content" style="display:flex; flex-direction:column; height:100%;">
+            <div class="project-image">
+              <!-- Emplacement pour la capture d'écran du projet 1 -->
+            </div>
+            <div class="project-content">
+              <span class="project-category">Plateforme Métier (Vibe Coding)</span>
+              <h3>Application SaaS Interne</h3>
+              <div class="avant-apres">
+                <div class="avant">
+                  <span>Avant :</span>
+                  Processus de gestion manuels, fichiers Excel éparpillés, perte de temps massive.
+                </div>
+                <div class="apres">
+                  <span>Après :</span>
+                  Création d'un dashboard unifié propulsé par l'IA. Automatisation des tâches.
+                </div>
+              </div>
+              <a href="#" class="project-link hover-target">Découvrir le projet →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projet 2: GROW -->
+        <div class="project-card tilt-card" data-animate="fade-up">
+          <div class="tilt-content" style="display:flex; flex-direction:column; height:100%;">
+            <div class="project-image">
+              <!-- Emplacement pour la capture d'écran du projet 2 -->
+            </div>
+            <div class="project-content">
+              <span class="project-category">E-commerce & Acquisition</span>
+              <h3>Marque D2C - Refonte & Ads</h3>
+              <div class="avant-apres">
+                <div class="avant">
+                  <span>Avant :</span>
+                  Trafic limité au bouche-à-oreille, site lent avec un taux de conversion sous les 1%.
+                </div>
+                <div class="apres">
+                  <span>Après :</span>
+                  Refonte UX Shopify, implémentation Meta Ads. Scalabilité atteinte et CA doublé.
+                </div>
+              </div>
+              <a href="#" class="project-link hover-target">Découvrir le projet →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projet 3: BUILD + GROW -->
+        <div class="project-card tilt-card" data-animate="fade-up">
+          <div class="tilt-content" style="display:flex; flex-direction:column; height:100%;">
+            <div class="project-image">
+              <!-- Emplacement pour la capture d'écran du projet 3 -->
+            </div>
+            <div class="project-content">
+              <span class="project-category">B2B Lead Generation</span>
+              <h3>Tunnel de Vente & SEO</h3>
+              <div class="avant-apres">
+                <div class="avant">
+                  <span>Avant :</span>
+                  Coût d'acquisition client (CAC) exorbitant, pas de système de capture de leads.
+                </div>
+                <div class="apres">
+                  <span>Après :</span>
+                  Landing Page optimisée, stratégie de contenu SEO. Acquisition pérenne.
+                </div>
+              </div>
+              <a href="#" class="project-link hover-target">Découvrir le projet →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <h2 data-animate="fade-up">Prêt à systématiser votre croissance ?</h2>
+      <p data-animate="fade-up" style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">Que ce soit pour construire une plateforme sur-mesure ou scaler votre acquisition.</p>
+      <a href="mailto:contact@abdoul.com" class="btn-primary magnetic-btn" data-animate="fade-up">Discutons de votre stratégie</a>
+      
+      <div class="footer-bottom">
+        <p>© 2026 Abdoul ADJIBAHO. Digital Builder & Stratège.</p>
+        <div class="nav-links" style="display: flex; gap: 1.5rem;">
+          <a href="#" class="hover-target">LinkedIn</a>
+          <a href="#" class="hover-target">Twitter</a>
+          <a href="#" class="hover-target">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
