@@ -143,3 +143,94 @@ try {
 } catch (e) {
   console.error("Intersection Observer error:", e);
 }
+
+// Contact Modal & Multi-step Form Logic
+const contactModal = document.getElementById('contact-modal');
+const closeModalBtn = document.getElementById('close-modal');
+const closeSuccessBtn = document.getElementById('close-success');
+const contactLinks = document.querySelectorAll('a[href="#contact"]');
+const form = document.getElementById('contact-form');
+const step1 = document.getElementById('step-1');
+const step2 = document.getElementById('step-2');
+const nextBtn = document.getElementById('next-step');
+const prevBtn = document.getElementById('prev-step');
+const formProgress = document.querySelector('.form-progress');
+const formSuccess = document.getElementById('form-success');
+const progressSteps = document.querySelectorAll('.progress-step');
+
+function openModal(e) {
+  if (e) e.preventDefault();
+  contactModal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeModal() {
+  contactModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Open modal on click of any contact link
+contactLinks.forEach(link => {
+  link.addEventListener('click', openModal);
+});
+
+// Close modal
+if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', closeModal);
+window.addEventListener('click', (e) => {
+  if (e.target === contactModal) closeModal();
+});
+
+// Step Navigation
+if (nextBtn) {
+  nextBtn.addEventListener('click', () => {
+    // Basic validation for Step 1
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    
+    if (!name || !email || !document.getElementById('email').checkValidity()) {
+      alert("Veuillez remplir correctement votre nom et adresse email.");
+      return;
+    }
+
+    step1.classList.remove('active');
+    step2.classList.add('active');
+    formProgress.classList.add('step-2');
+    progressSteps[1].classList.add('active');
+  });
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener('click', () => {
+    step2.classList.remove('active');
+    step1.classList.add('active');
+    formProgress.classList.remove('step-2');
+    progressSteps[1].classList.remove('active');
+  });
+}
+
+// Form Submission
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Here you would normally send the data via fetch/axios to your backend (e.g. Formspree, Zapier)
+    // For now, we just show the success message
+    
+    step1.classList.remove('active');
+    step2.classList.remove('active');
+    formProgress.style.display = 'none'; // hide progress
+    formSuccess.classList.add('active');
+    
+    // Reset form for next time
+    setTimeout(() => {
+      form.reset();
+      formProgress.classList.remove('step-2');
+      progressSteps[1].classList.remove('active');
+      formProgress.style.display = 'flex';
+      formSuccess.classList.remove('active');
+      step1.classList.add('active');
+    }, 5000);
+  });
+}
+
