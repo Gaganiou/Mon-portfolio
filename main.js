@@ -158,27 +158,30 @@ const formProgress = document.querySelector('.form-progress');
 const formSuccess = document.getElementById('form-success');
 const progressSteps = document.querySelectorAll('.progress-step');
 
-function openModal(e) {
+window.openContactModal = function(e) {
   if (e) e.preventDefault();
-  contactModal.classList.add('active');
+  const contactModal = document.getElementById('contact-modal');
+  if (contactModal) contactModal.classList.add('active');
   document.body.style.overflow = 'hidden'; // Prevent background scrolling
-}
+};
 
-function closeModal() {
-  contactModal.classList.remove('active');
+window.closeContactModal = function() {
+  const contactModal = document.getElementById('contact-modal');
+  if (contactModal) contactModal.classList.remove('active');
   document.body.style.overflow = '';
-}
+};
 
-// Open modal on click of any contact link
+// Open modal on click of any contact link (fallback if inline doesn't work)
 contactLinks.forEach(link => {
-  link.addEventListener('click', openModal);
+  link.addEventListener('click', window.openContactModal);
 });
 
 // Close modal
-if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', closeModal);
+if (closeModalBtn) closeModalBtn.addEventListener('click', window.closeContactModal);
+if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', window.closeContactModal);
 window.addEventListener('click', (e) => {
-  if (e.target === contactModal) closeModal();
+  const contactModal = document.getElementById('contact-modal');
+  if (e.target === contactModal) window.closeContactModal();
 });
 
 // Step Navigation
