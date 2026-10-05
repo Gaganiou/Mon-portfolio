@@ -257,84 +257,87 @@
 
   <script type="module" src="./main.js"></script>
 
-  <!-- Contact Modal (2 Steps) -->
+  <!-- Contact Modal (3 Steps) -->
   <div id="contact-modal" class="modal-overlay">
-    <div class="modal-content">
+    <div class="modal-content stylish-modal">
       <button class="modal-close" id="close-modal">&times;</button>
       <div class="modal-header">
-        <h2>Travailler ensemble</h2>
-        <p>Parlez-moi de votre projet pour que nous puissions évaluer la meilleure approche.</p>
+        <h2>Discutons de votre projet</h2>
+        <p>Quelques questions rapides pour mieux vous accompagner.</p>
         
-        <div class="form-progress">
-          <div class="progress-step active" data-step="1">1. Informations</div>
-          <div class="progress-line"></div>
-          <div class="progress-step" data-step="2">2. Projet</div>
+        <div class="stylish-progress">
+          <div class="dot active" data-step="1"></div>
+          <div class="dot-line"></div>
+          <div class="dot" data-step="2"></div>
+          <div class="dot-line"></div>
+          <div class="dot" data-step="3"></div>
         </div>
       </div>
 
       <form id="contact-form" class="multi-step-form">
         <!-- Step 1 -->
         <div class="form-step active" id="step-1">
-          <div class="form-group">
-            <label for="name">Nom complet *</label>
-            <input type="text" id="name" required placeholder="Ex: Jean Dupont">
+          <div class="form-group sleek-input">
+            <input type="text" id="name" required placeholder=" ">
+            <label for="name">Votre nom complet</label>
           </div>
-          <div class="form-group">
-            <label for="email">Adresse email *</label>
-            <input type="email" id="email" required placeholder="jean@entreprise.com">
+          <div class="form-group sleek-input">
+            <input type="email" id="email" required placeholder=" ">
+            <label for="email">Votre adresse email</label>
           </div>
-          <div class="form-group">
-            <label for="company">Entreprise / Projet</label>
-            <input type="text" id="company" placeholder="Nom de votre structure">
-          </div>
-          <div class="form-group">
-            <label for="website">Site web actuel (optionnel)</label>
-            <input type="url" id="website" placeholder="https://...">
-          </div>
-          <div class="form-actions">
-            <button type="button" class="btn-primary" id="next-step">Continuer &rarr;</button>
+          <div class="form-actions right">
+            <button type="button" class="btn-primary magnetic-btn" id="next-step-1">Continuer &rarr;</button>
           </div>
         </div>
 
         <!-- Step 2 -->
         <div class="form-step" id="step-2">
-          <div class="form-group">
-            <label for="industry">Secteur d'activité *</label>
+          <div class="form-group sleek-input">
+            <input type="text" id="company" placeholder=" ">
+            <label for="company">Nom de votre entreprise / projet</label>
+          </div>
+          <div class="form-group sleek-select">
             <select id="industry" required>
-              <option value="" disabled selected>Choisissez un secteur</option>
+              <option value="" disabled selected>Secteur d'activité</option>
               <option value="ecommerce">E-commerce / D2C</option>
               <option value="saas">SaaS / Tech</option>
               <option value="b2b">Services B2B / Agence</option>
-              <option value="infoproduct">Formation / Infoproduit</option>
               <option value="other">Autre</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="goal">Besoin principal *</label>
+          <div class="form-actions row">
+            <button type="button" class="btn-secondary" id="prev-step-2">&larr; Retour</button>
+            <button type="button" class="btn-primary magnetic-btn" id="next-step-2">Continuer &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step" id="step-3">
+          <div class="form-group sleek-select">
             <select id="goal" required>
-              <option value="" disabled selected>Quel est votre objectif ?</option>
-              <option value="build">Création / Refonte de plateforme web</option>
-              <option value="ads">Acquisition Payante (Meta/Google Ads)</option>
-              <option value="seo">Acquisition Organique (SEO)</option>
-              <option value="global">Stratégie globale (Build + Grow)</option>
+              <option value="" disabled selected>Votre objectif principal</option>
+              <option value="build">Création / Refonte web</option>
+              <option value="ads">Acquisition & Ads</option>
+              <option value="seo">SEO & Visibilité</option>
+              <option value="global">Stratégie globale</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="message">Description de vos défis actuels *</label>
-            <textarea id="message" required rows="4" placeholder="Qu'est-ce qui vous bloque aujourd'hui dans votre croissance ?"></textarea>
+          <div class="form-group sleek-input">
+            <textarea id="message" required rows="3" placeholder=" "></textarea>
+            <label for="message">Parlez-moi de vos défis (bref)</label>
           </div>
           <div class="form-actions row">
-            <button type="button" class="btn-secondary" id="prev-step">&larr; Retour</button>
-            <button type="submit" class="btn-primary">Envoyer la demande</button>
+            <button type="button" class="btn-secondary" id="prev-step-3">&larr; Retour</button>
+            <button type="submit" class="btn-primary magnetic-btn">Envoyer</button>
           </div>
         </div>
         
         <!-- Success Message -->
         <div class="form-success" id="form-success">
-          <div class="success-icon">✓</div>
-          <h3>Demande envoyée !</h3>
-          <p>Merci pour ces informations. Je reviens vers vous sous 48h pour discuter de votre projet.</p>
-          <button type="button" class="btn-secondary mt-4" id="close-success">Fermer</button>
+          <div class="success-icon">✨</div>
+          <h3>C'est dans la boîte !</h3>
+          <p>Merci pour votre confiance. Je vous réponds sous 48h.</p>
+          <button type="button" class="btn-primary mt-4 magnetic-btn" id="close-success">Fermer</button>
         </div>
       </form>
     </div>

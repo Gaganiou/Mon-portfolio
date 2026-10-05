@@ -633,10 +633,8 @@ footer {
   border-radius: 12px;
   width: 90%;
   max-width: 600px;
-  max-height: 90vh;
-  overflow-y: auto;
   position: relative;
-  padding: 2.5rem;
+  padding: 3.5rem 3rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   transform: translateY(20px);
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -653,7 +651,7 @@ footer {
   background: transparent;
   border: none;
   color: var(--text-muted);
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
   transition: color 0.2s;
   line-height: 1;
@@ -669,110 +667,141 @@ footer {
 }
 
 .modal-header h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--text-main);
   margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .modal-header p {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
-/* Progress Tracker */
-.form-progress {
+/* Progress Tracker - Sleek Dots */
+.stylish-progress {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
-  gap: 1rem;
+  margin-top: 2.5rem;
+  gap: 8px;
 }
 
-.progress-step {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  transition: color 0.3s;
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  transition: all 0.4s ease;
 }
 
-.progress-step.active {
-  color: var(--accent);
+.dot.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.3);
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
-.progress-line {
+.dot-line {
   height: 2px;
-  width: 40px;
+  width: 30px;
   background: var(--border-color);
   position: relative;
+  overflow: hidden;
+  border-radius: 2px;
 }
 
-.progress-line::after {
+.dot-line::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   height: 100%;
-  width: 0%;
+  width: 100%;
   background: var(--accent);
-  transition: width 0.4s ease;
+  transition: left 0.4s ease;
 }
 
-.form-progress.step-2 .progress-line::after {
+.dot-line.active::after {
+  left: 0;
+}
+
+/* Sleek Floating Label Inputs */
+.sleek-input {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.sleek-input input,
+.sleek-input textarea {
   width: 100%;
-}
-
-/* Form Fields */
-.form-step {
-  display: none;
-  animation: fadeIn 0.4s ease forwards;
-}
-
-.form-step.active {
-  display: block;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-main);
-  margin-bottom: 0.5rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
+  padding: 1rem 0.5rem 0.5rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--border-color);
   color: var(--text-main);
   font-family: inherit;
-  font-size: 0.95rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  font-size: 1.05rem;
+  transition: border-color 0.3s;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.sleek-input input:focus,
+.sleek-input textarea:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.sleek-input label {
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  cursor: text;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.sleek-input input:focus ~ label,
+.sleek-input input:not(:placeholder-shown) ~ label,
+.sleek-input textarea:focus ~ label,
+.sleek-input textarea:not(:placeholder-shown) ~ label {
+  top: -12px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.sleek-select {
+  margin-bottom: 2rem;
+}
+
+.sleek-select select {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.sleek-select select:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
-.form-group textarea {
-  resize: vertical;
-}
-
 .form-actions {
   display: flex;
+  margin-top: 2.5rem;
+}
+
+.form-actions.right {
   justify-content: flex-end;
-  margin-top: 2rem;
 }
 
 .form-actions.row {
@@ -782,7 +811,7 @@ footer {
 .form-success {
   display: none;
   text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .form-success.active {

@@ -145,33 +145,39 @@ try {
 }
 
 // Contact Modal & Multi-step Form Logic
+// Contact Modal & Multi-step Form Logic
 const contactModal = document.getElementById('contact-modal');
 const closeModalBtn = document.getElementById('close-modal');
 const closeSuccessBtn = document.getElementById('close-success');
 const contactLinks = document.querySelectorAll('a[href="#contact"]');
 const form = document.getElementById('contact-form');
+
 const step1 = document.getElementById('step-1');
 const step2 = document.getElementById('step-2');
-const nextBtn = document.getElementById('next-step');
-const prevBtn = document.getElementById('prev-step');
-const formProgress = document.querySelector('.form-progress');
+const step3 = document.getElementById('step-3');
+
+const nextBtn1 = document.getElementById('next-step-1');
+const nextBtn2 = document.getElementById('next-step-2');
+const prevBtn2 = document.getElementById('prev-step-2');
+const prevBtn3 = document.getElementById('prev-step-3');
+
+const formProgress = document.querySelector('.stylish-progress');
 const formSuccess = document.getElementById('form-success');
-const progressSteps = document.querySelectorAll('.progress-step');
+const dots = document.querySelectorAll('.dot');
+const dotLines = document.querySelectorAll('.dot-line');
 
 window.openContactModal = function(e) {
   if (e) e.preventDefault();
-  const contactModal = document.getElementById('contact-modal');
   if (contactModal) contactModal.classList.add('active');
-  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  document.body.style.overflow = 'hidden'; 
 };
 
 window.closeContactModal = function() {
-  const contactModal = document.getElementById('contact-modal');
   if (contactModal) contactModal.classList.remove('active');
   document.body.style.overflow = '';
 };
 
-// Open modal on click of any contact link (fallback if inline doesn't work)
+// Open modal on click of any contact link
 contactLinks.forEach(link => {
   link.addEventListener('click', window.openContactModal);
 });
@@ -180,14 +186,12 @@ contactLinks.forEach(link => {
 if (closeModalBtn) closeModalBtn.addEventListener('click', window.closeContactModal);
 if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', window.closeContactModal);
 window.addEventListener('click', (e) => {
-  const contactModal = document.getElementById('contact-modal');
   if (e.target === contactModal) window.closeContactModal();
 });
 
 // Step Navigation
-if (nextBtn) {
-  nextBtn.addEventListener('click', () => {
-    // Basic validation for Step 1
+if (nextBtn1) {
+  nextBtn1.addEventListener('click', () => {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     
@@ -198,17 +202,41 @@ if (nextBtn) {
 
     step1.classList.remove('active');
     step2.classList.add('active');
-    formProgress.classList.add('step-2');
-    progressSteps[1].classList.add('active');
+    dots[1].classList.add('active');
+    dotLines[0].classList.add('active');
   });
 }
 
-if (prevBtn) {
-  prevBtn.addEventListener('click', () => {
+if (prevBtn2) {
+  prevBtn2.addEventListener('click', () => {
     step2.classList.remove('active');
     step1.classList.add('active');
-    formProgress.classList.remove('step-2');
-    progressSteps[1].classList.remove('active');
+    dots[1].classList.remove('active');
+    dotLines[0].classList.remove('active');
+  });
+}
+
+if (nextBtn2) {
+  nextBtn2.addEventListener('click', () => {
+    const industry = document.getElementById('industry').value;
+    if (!industry) {
+      alert("Veuillez choisir un secteur d'activité.");
+      return;
+    }
+
+    step2.classList.remove('active');
+    step3.classList.add('active');
+    dots[2].classList.add('active');
+    dotLines[1].classList.add('active');
+  });
+}
+
+if (prevBtn3) {
+  prevBtn3.addEventListener('click', () => {
+    step3.classList.remove('active');
+    step2.classList.add('active');
+    dots[2].classList.remove('active');
+    dotLines[1].classList.remove('active');
   });
 }
 
@@ -217,20 +245,20 @@ if (form) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // Here you would normally send the data via fetch/axios to your backend (e.g. Formspree, Zapier)
-    // For now, we just show the success message
-    
     step1.classList.remove('active');
     step2.classList.remove('active');
-    formProgress.style.display = 'none'; // hide progress
+    step3.classList.remove('active');
+    if(formProgress) formProgress.style.display = 'none'; 
     formSuccess.classList.add('active');
     
     // Reset form for next time
     setTimeout(() => {
       form.reset();
-      formProgress.classList.remove('step-2');
-      progressSteps[1].classList.remove('active');
-      formProgress.style.display = 'flex';
+      dots[1].classList.remove('active');
+      dots[2].classList.remove('active');
+      dotLines[0].classList.remove('active');
+      dotLines[1].classList.remove('active');
+      if(formProgress) formProgress.style.display = 'flex';
       formSuccess.classList.remove('active');
       step1.classList.add('active');
     }, 5000);
